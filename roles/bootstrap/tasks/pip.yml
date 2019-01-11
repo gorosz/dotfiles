@@ -1,0 +1,8 @@
+---
+- name: install pexpect
+  pip:
+    name: pexpect
+
+- name: install pipenv
+  pip:
+    name: pipenv
