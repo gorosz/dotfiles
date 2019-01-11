@@ -1,0 +1,17 @@
+#  Local home directory
+dotfiles_user_home: "{{ '~' | expanduser }}"
+# Where your dotfiles live. Probably don't need to change this.
+dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+
+# Name used in commit messages
+full_name: Gergely Orosz
+
+# Git
+# Github username
+github_user: gorosz
+
+# If you use github, this should be the same as the email
+#  used on Github
+git_email: gergelyo@protonmail.com
+
+bb_email: gergely.orosz@balabit.com
