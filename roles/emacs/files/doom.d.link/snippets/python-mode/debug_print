@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: debug_print
+# key: debug_print
+# --
+print("###> ", $0)

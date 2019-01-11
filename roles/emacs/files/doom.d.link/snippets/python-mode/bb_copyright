@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: bb_copyright
+# key: bb_cr
+# --
+#
+# Copyright (c) 2006-`(insert (format-time-string "%Y"))` Balabit
+# All Rights Reserved.
+#
