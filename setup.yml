@@ -2,7 +2,7 @@
   hosts: local
   roles:
     - {role: bootstrap, tags: ['bootstrap']}
-    - {role: geerlingguy.docker, tags: ['bootstrap']}
+    - {role: geerlingguy.docker, tags: ['bootstrap'], become: yes}
     - {role: git, tags: ['git']}
     - {role: zsh, tags: ['zsh']}
     - {role: emacs, tags: ['emacs']}
