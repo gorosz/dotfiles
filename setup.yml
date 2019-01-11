@@ -1,5 +1,7 @@
 - name: setup local machine
   hosts: local
   roles:
+    - {role: bootstrap, tags: ['bootstrap']}
+    - {role: geerlingguy.docker, tags: ['bootstrap']}
     - {role: git, tags: ['git']}
     - {role: zsh, tags: ['zsh']}
