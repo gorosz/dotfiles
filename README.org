@@ -1,1 +1,8 @@
 #+TITLE: README
+
+* Requirements
+- Install ansible on your machine
+- Install docker role from ansible-galaxy
+  #+BEGIN_SRC bash
+  $ ansible-galaxy install geerlingguy.docker
+  #+END_SRC

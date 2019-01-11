@@ -1,0 +1,36 @@
+---
+- name: Installing X server and drivers
+  dnf:
+    name: "{{x_server}}"
+    state: latest
+  become: yes
+
+- name: Installing Wireless drivers (the 7260 package contains firmwares for many other Intel cards too)
+  dnf:
+    name: "{{wireless_drivers}}"
+    state: latest
+  become: yes
+
+- name: Installing sound utils
+  dnf:
+    name: "{{sound_utils}}"
+    state: latest
+  become: yes
+
+- name: Installing desktop softwares
+  dnf:
+    name: "{{desktop_softwares}}"
+    state: latest
+  become: yes
+
+- name: Setting up rpm fusion free
+  dnf:
+    name: 'https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_distribution_version}}.noarch.rpm'
+    state: present
+  become: yes
+
+- name: Setting up rpm fusion non-free
+  dnf:
+    name: 'https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_distribution_version}}.noarch.rpm'
+    state: present
+  become: yes
