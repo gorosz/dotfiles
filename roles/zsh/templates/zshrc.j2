@@ -1,0 +1,59 @@
+#
+# User configuration sourced by interactive shells
+#
+
+path+=($HOME/.local/bin)
+path+=($HOME/.emacs.d/bin)
+export PATH
+
+# Customize to your needs...
+export ZSHFOLDER=$HOME/.zsh
+
+fpath+=$ZSHFOLDER/functions
+
+typeset -ga my_sources
+{% for f in find_result.stdout_lines%}
+my_sources+="$ZSHFOLDER/{{f}}"
+{% endfor %}
+
+foreach file (`echo $my_sources`)
+    if [[ -a $file ]]; then
+        source $file
+    fi
+end
+
+source $ZSHFOLDER/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle pip
+antigen bundle command-not-found
+antigen bundle dracula/zsh
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme
+antigen theme dracula/zsh
+
+# Tell Antigen that you're done.
+antigen apply
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/gergelyorosz/.local/bin/vault vault
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /home/gergelyorosz/.asdf/installs/nodejs/11.6.0/.npm/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/gergelyorosz/.asdf/installs/nodejs/11.6.0/.npm/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
+
+
+eval `keychain --eval --agents ssh id_rsa`

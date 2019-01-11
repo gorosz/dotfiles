@@ -1,0 +1,44 @@
+[user]
+	name = {{full_name}}
+	email = {{bb_email}}
+
+[credential]
+    helper = cache
+
+[color]
+    ui = auto
+
+[difftool]
+    prompt = true
+
+[diff]
+    tool = meld
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[mergetool]
+    prompt = true
+
+[merge]
+    tool = meld
+
+[core]
+    editor = "emacsclient"
+	excludesfile = ~/.gitignore_global
+	autocrlf = false
+
+[push]
+	default = upstream
+
+[pull]
+	rebase = true
+
+[gui]
+	tabsize = 4
+	fontui = -family \"Fira Code\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family Hermit -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	pruneduringfetch = true
+
+[github]
+	user = {{github_user}}

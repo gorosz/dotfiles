@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Update local environment using ansible-playbook.
+# Optionally pass role names.
+set -e
+
+if [[ $# -eq 0 ]]; then
+  # Run all roles except for the ones tagged with 'bootstrap'
+  echo "Updating local environment..."
+  ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/setup.yml --skip-tags "bootstrap"
+else
+  echo "Updating local environment... (--tags $@)"
+  ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/setup.yml --skip-tags "bootstrap" --tags $@
+fi
