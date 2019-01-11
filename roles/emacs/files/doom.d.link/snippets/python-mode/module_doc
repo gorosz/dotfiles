@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: module_documentation
+# key: mdoc
+# --
+"""
+.. py:module:: ${1:module}
+    :synopsis: ${2: synopsis}
+
+${3: Description}
+"""
+$0

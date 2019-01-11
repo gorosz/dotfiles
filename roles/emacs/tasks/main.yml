@@ -1,0 +1,22 @@
+---
+- name: Getting doom emacs
+  git:
+    repo: 'https://github.com/hlissner/doom-emacs'
+    dest: '{{dotfiles_user_home}}/.emacs.d'
+    version: 'develop'
+
+- name: Linking personal config folder
+  file:
+    src: "{{dotfiles_home}}/roles/emacs/files/doom.d.link"
+    dest: "{{dotfiles_user_home}}/.doom.d"
+    state: link
+    force: yes
+
+- name: Bootstraping emacs
+  expect:
+    command: make quickstart
+    responses:
+      (?i)Proceed: y
+    timeout: 600
+  args:
+    chdir: '/home/gergelyorosz/.emacs.d'

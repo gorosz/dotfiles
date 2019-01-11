@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: @expectedException
+# key: expE
+# --
+/**
+* @expectedException $1
+*/
