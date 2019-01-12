@@ -6,3 +6,4 @@
     - {role: git, tags: ['git']}
     - {role: zsh, tags: ['zsh']}
     - {role: emacs, tags: ['emacs']}
+    - {role: qtile, tags: ['qtile']}

@@ -1,0 +1,49 @@
+import os
+
+EDITOR = 'emacsclient --no-wait'
+TERMINAL = os.path.expanduser('~/.local/bin/tterm')
+ROFI_COMMAND = os.path.expanduser('~/.local/bin/rofi-run')
+COLORS = dict(this_current_screen_border='#A87F08',
+              active='CDA01E',
+              inactive='634900',
+              border_focus='#27298F',
+              bar_background='#050645')
+
+
+class PlayerCtl:
+
+    def __init__(self, player='spotify'):
+        self.__player = player
+
+    @property
+    def next(self):
+        return self.__construct_command('next')
+
+    @property
+    def previous(self):
+        return self.__construct_command('previous')
+
+    @property
+    def playpause(self):
+        return self.__construct_command('play-pause')
+
+    def __construct_command(self, command):
+        return 'playerctl --player={} {}'.format(self.__player, command)
+
+
+class VpnCtl:
+
+    def __init__(self, con_id='Balabit', pwd_file=os.path.expanduser('~/.dotfiles/cert/vpn_pwd')):
+        self.__pwd_file = pwd_file
+        self.__con_id = con_id
+
+    @property
+    def up(self):
+        return 'nmcli con {command} id {con_id} passwd-file {pwd_file}'.format(
+            command='up',
+            con_id=self.__con_id,
+            pwd_file=self.__pwd_file)
+
+    @property
+    def down(self):
+        return 'nmcli con down id {con_id}'.format(con_id=self.__con_id)

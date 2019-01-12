@@ -12,7 +12,7 @@
     creates: "{{dotfiles_user_home}}/.zshrc.bak"
   when: zshrc_stat.stat.exists
 
-- name: Make sure gitconfig is up to date
+- name: Make sure zshrc is up to date
   template:
     src: "zshrc.j2"
     dest: "{{dotfiles_user_home}}/.zshrc"
