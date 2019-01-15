@@ -7,3 +7,4 @@
     - {role: zsh, tags: ['zsh']}
     - {role: emacs, tags: ['emacs']}
     - {role: qtile, tags: ['qtile']}
+    - {role: ssh, tags: ['ssh']}  # This role is configured to use ansible-vault to encrypt ssh keys, disable it by removing from the list

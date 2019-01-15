@@ -1,0 +1,30 @@
+---
+- name: Check if ssh keys are exist
+  stat: path="{{dotfiles_user_home}}/.ssh/"
+  register: ssh_stat
+
+# - name: Back up existing .ssh folder
+#  command: "mv {{dotfiles_user_home}}/.ssh {{dotfiles_user_home}}/.ssh.bak"
+#  args:
+#    creates: "{{dotfiles_user_home}}/.ssh.bak"
+#  when: ssh_stat.stat.exists
+
+- name: Create ssh folder is not exists
+  file:
+    dest: "{{dotfiles_user_home}}/.ssh"
+    state: directory
+  when: ssh_stat.stat.exists == False
+
+- name: Make sure ssh private key is update
+  template:
+    src: "private_key.j2"
+    dest: "{{dotfiles_user_home}}/.ssh/id_rsa"
+    backup: true
+    mode: 0600
+
+- name: Make sure ssh public key is update
+  template:
+    src: "public_key.j2"
+    dest: "{{dotfiles_user_home}}/.ssh/id_rsa.pub"
+    backup: true
+    mode: 0600

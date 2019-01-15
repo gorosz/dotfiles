@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
+# TODO: Check if dependencies are installed
 echo "Setting up local environment..."
-ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/setup.yml --ask-become-pass
+ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/setup.yml --ask-become-pass --ask-vault-pass
