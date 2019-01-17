@@ -2,7 +2,7 @@ import os
 
 EDITOR = 'emacsclient --no-wait'
 TERMINAL = os.path.expanduser('~/.local/bin/tterm')
-ROFI_COMMAND = os.path.expanduser('~/.local/bin/rofi-run')
+ROFI_COMMAND = os.path.expanduser('rofi -show combi')
 COLORS = dict(this_current_screen_border='#A87F08',
               active='CDA01E',
               inactive='634900',
