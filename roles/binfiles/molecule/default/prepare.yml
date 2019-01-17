@@ -1,0 +1,20 @@
+---
+
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  vars:
+    binfile_content: "echo 'Hello'"
+  tasks:
+    - name: Create home folder
+      file:
+        dest: "/home/gergelyorosz/dotfiles/roles/binfiles/files"
+        state: directory
+
+    - name: Create a bin files
+      template:
+        src: "binfile.j2"
+        dest: "/home/gergelyorosz/dotfiles/roles/binfiles/files/{{ item }}"
+      with_list:
+        - b1
+        - b2
