@@ -1,0 +1,24 @@
+---
+
+- name: Prepare
+  hosts: all
+  gather_facts: false
+  vars:
+    file_content: "echo 'Hello'"
+  tasks:
+    - name: Create home folder
+      file:
+        dest: "/home/gergelyorosz/dotfiles/roles/tmux/files"
+        state: directory
+
+    - name: Create .tmux folder
+      file:
+        dest: "/home/gergelyorosz/dotfiles/roles/tmux/files/tmux.link"
+        state: directory
+
+    - name: Create .tmux.conf file
+      template:
+        src: "conffile.j2"
+        dest: "/home/gergelyorosz/dotfiles/roles/tmux/files/{{ item }}"
+      with_list:
+        - "tmux.conf.link"
