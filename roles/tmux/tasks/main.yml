@@ -4,6 +4,7 @@
   package:
     name: tmux
     state: present
+  become: true
 
 - name: Link tmux folder
   file:
