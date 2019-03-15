@@ -60,6 +60,7 @@ desktop_softwares:
   - network-manager-applet
   - network-manager-applet
   - qtile
+  - restic
   - ripgrep
   - rofi
   - rofi-themes

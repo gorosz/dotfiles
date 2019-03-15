@@ -1,5 +1,5 @@
 - name: setup local machine
-  hosts: local
+  hosts: all
   roles:
     - {role: bootstrap, tags: ['bootstrap']}
     - {role: geerlingguy.docker, tags: ['bootstrap'], become: yes}
