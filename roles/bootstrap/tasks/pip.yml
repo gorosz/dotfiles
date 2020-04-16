@@ -1,6 +1,0 @@
----
-- name: install pexpect
-  pip:
-    name:
-      - pexpect
-  become: yes

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: prezi_test_symlink
+# key: test_symlink
+# --
+def test_hosts_file(host):
+f = host.file('/home/gergelyorosz/.config/my_config_file')
+
+assert f.is_symlink
+assert f.linked_to == '/home/gergelyorosz/dotfiles/myrole/files/my_config_file.link'

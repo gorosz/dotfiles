@@ -1,0 +1,12 @@
+- name: setup local machine
+  hosts: local-vm
+  vars:
+    config_home: "{{ansible_user_dir}}/.config"
+  roles:
+     - {role: repositories, tags: ['repos']}
+     - {role: bootstrap, tags: ['bs']}
+     - {role: i3wm, tags: ['i3wm']}
+     - {role: rofi, tags: ['rofi']}
+     - {role: alacritty, tags: ['termial', 'alacritty']}
+     - {role: fish, tags: ['fish']}
+     - {role: emacs, tags: ['editor', 'emacs']}

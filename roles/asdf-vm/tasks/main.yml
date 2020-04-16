@@ -1,0 +1,13 @@
+---
+# tasks file for roles/asdf-vm
+#
+- name: Cloning asdf-vm
+  git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: "{{ansible_user_dir}}/.asdf"
+    version: "{{asdf_version}}"
+
+- name: Add to fish
+  lineinfile:
+    path: "{{config_home}}/fish/config.fish"
+    line: "source ~/.asdf/asdf.fish"

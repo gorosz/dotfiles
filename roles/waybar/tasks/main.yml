@@ -1,0 +1,29 @@
+---
+# tasks file for roles/waybar
+#
+- name: install waybar
+  dnf:
+    name: waybar
+    state: latest
+  become: yes
+
+- name: create config directory
+  file:
+    dest: "{{config_home}}/waybar"
+    state: directory
+
+- name: deploy config
+  copy:
+    src: config
+    dest: "{{config_home}}/waybar/config"
+
+- name: deploy style
+  copy:
+    src: style.css
+    dest: "{{config_home}}/waybar/style.css"
+
+- name: deploy start sh
+  copy:
+    src: waybar.sh
+    dest: "{{config_home}}/waybar/waybar.sh"
+    mode: preserve

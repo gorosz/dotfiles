@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: prezi_link_file
+# key: prezi_link_file
+# --
+- name: Link configuration
+file:
+src: my_config_file.link
+dest: "{{home}}"/.config/my_config_file
+state: link
+force: true

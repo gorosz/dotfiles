@@ -1,0 +1,8 @@
+---
+# tasks file for roles/wofi
+#
+- name: install dependencies
+  dnf:
+    name: wofi
+    state: latest
+  become: yes
