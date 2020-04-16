@@ -1,3 +1,38 @@
-- import_tasks: redhat.yml
-  when: ansible_os_family == "RedHat"
-- import_tasks: pip.yml
+---
+# tasks file for roles/bootstrap
+#
+- name: create .local/bin
+  file:
+    dest: "{{ansible_user_dir}}/.local/bin"
+    state: directory
+
+- name: create Tools
+  file:
+    dest: "{{ansible_user_dir}}/Tools"
+    state: directory
+
+- name: create Devel
+  file:
+    dest: "{{ansible_user_dir}}/Devel"
+    state: directory
+
+- name: create .config
+  file:
+    dest: "{{ansible_user_dir}}/.config"
+    state: directory
+
+- name: Install system packages
+  dnf:
+    name: "{{system_packages}}"
+    state: latest
+  become: yes
+
+- name: install pexpect
+  pip:
+    name:
+      - pexpect
+  become: yes
+
+# Install fasd via git
+# - name: install fasd
+#   git:

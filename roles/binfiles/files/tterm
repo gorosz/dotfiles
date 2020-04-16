@@ -1,9 +1,0 @@
-#!/bin/sh
-set -x
-TERMINAL_COMMAND=termite
-if [ -z $@ ]; then
-  exec $TERMINAL_COMMAND -e /home/gergelyorosz/.local/bin/attach-tmux
-else
-  export SHELL=tmux
-  exec $TERMINAL_COMMAND "$@"
-fi

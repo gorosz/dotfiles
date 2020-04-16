@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: reference_id
+# uuid:
+# key: rid
+# condition: t
+# --
+References: jira PAM-$0

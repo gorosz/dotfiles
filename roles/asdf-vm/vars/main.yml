@@ -1,0 +1,4 @@
+---
+# vars file for roles/asdf-vm
+#
+asdf_version: v0.7.8

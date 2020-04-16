@@ -1,0 +1,40 @@
+---
+# tasks file for roles/i3wm
+- name: Install i3wm
+  dnf:
+    name: i3
+    state: present
+  become: yes
+
+- name: Install i3 applications
+  dnf:
+    name:
+      - i3lock
+      - network-manager-applet
+      - blueman
+      - xss-lock
+    state: present
+  become: yes
+
+- name: create i3 config directory
+  file:
+    dest: "{{config_home}}/i3"
+    state: directory
+
+- name: symlink config file
+  copy:
+    src: config
+    dest: "{{config_home}}/i3/config"
+    backup: yes
+
+- name: symlink autostart file
+  copy:
+    src: autostart.sh
+    dest: "{{config_home}}/i3/autostart.sh"
+    backup: yes
+    mode: 0755
+
+- name: cloning bumblebee-status
+  git:
+    repo: "git://github.com/tobi-wan-kenobi/bumblebee-status"
+    dest: "{{ansible_user_dir}}/Tools/bumblebee-status"

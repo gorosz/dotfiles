@@ -1,0 +1,14 @@
+---
+# tasks file for roles/rofi
+#
+- name: Install rofi
+  dnf:
+    name: rofi
+    state: latest
+  become: yes
+
+- name: deploy config
+  copy:
+    src: rofi
+    dest: "{{config_home}}"
+    backup: yes

@@ -1,0 +1,26 @@
+---
+# tasks file for roles/alacritty
+#
+- name: enable alacritty copr repo
+  command:
+    cmd: "dnf copr -y enable pschyska/alacritty"
+    creates:
+      "/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:pschyska:alacritty.repo"
+    warn: no
+  become: yes
+
+- name: install alacritty
+  dnf:
+    name: alacritty
+    state: latest
+  become: yes
+
+- name: create config directory
+  file:
+    dest: "{{config_home}}/alacritty"
+    state: directory
+
+- name: deploy config
+  copy:
+    src: alacritty.yml
+    dest: "{{config_home}}/alacritty/alacritty.yml"

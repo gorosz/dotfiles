@@ -1,73 +1,14 @@
 ---
-x_server:
-  - glx-utils
-  - mesa-dri-drivers
-  - mesa-vulkan-drivers
-  - plymouth-system-theme
-  - xorg-x11-drv-evdev
-  - xorg-x11-drv-fbdev
-  - xorg-x11-drv-intel
-  - xorg-x11-drv-libinput
-  - xorg-x11-drv-vesa
-  - xorg-x11-server-Xorg
-  - xorg-x11-server-utils
-  - xorg-x11-utils
-  - xorg-x11-xauth
-  - xorg-x11-xinit
-  - xbacklight
-  - xcompmgr
-  - xrandr
-  - arandr
-  - xsel
-  - xclip
-  - xkill
-  - dbus-x11
-
-wireless_drivers:
-  - iwl7260-firmware
-  - linux-firmware
-
-sound_utils:
-  - pulseaudio
-  - pulseaudio-libs
-  - pulseaudio-utils
-  - alsa-plugins-pulseaudio
-  - alsa-utils
-  - pavucontrol
-  - volumeicon
-
-desktop_softwares:
-  - bat
-  - battray
-  - bind-utils
-  - blueman
-  - dunst
-  - emacs
-  - exa
-  - fd-find
-  - firefox
-  - fontconfig
-  - fzf
+# vars file for roles/bootstrap
+#
+system_packages:
   - git
-  - git-extras
-  - git-gui
-  - git-review
-  - httpie
-  - jq
-  - keychain
-  - make
-  - net-tools
-  - network-manager-applet
-  - network-manager-applet
-  - qtile
-  - restic
-  - ripgrep
-  - rofi
-  - rofi-themes
-  - tlp
-  - tmux
-  - udiskie
-  - upower
-  - xdg-utils
-  - xss-lock
-  - zsh
+  - weston
+  - micro
+  - bat
+  - fzf
+  - telegram-desktop
+  - virt-manager
+  - libvirt-client
+  - playerctl
+  - discount

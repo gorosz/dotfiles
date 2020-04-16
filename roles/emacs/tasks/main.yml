@@ -1,22 +1,40 @@
 ---
+# tasks file for roles/emacs
+#
+- name: install dependencies
+  dnf:
+    name:
+      - cmake
+      - libvterm-devel
+      - libvterm-tools
+      - ripgrep
+      - fd-find
+    state: latest
+  become: yes
+
+- name: Install emacs
+  dnf:
+    name: emacs
+    state: latest
+  become: yes
+
 - name: Getting doom emacs
   git:
     repo: 'https://github.com/hlissner/doom-emacs'
-    dest: '{{dotfiles_user_home}}/.emacs.d'
+    dest: '{{ansible_user_dir}}/.emacs.d'
     version: 'develop'
 
-- name: Linking personal config folder
-  file:
-    src: "{{dotfiles_home}}/roles/emacs/files/doom.d.link"
-    dest: "{{dotfiles_user_home}}/.doom.d"
-    state: link
-    force: yes
+- name: Deploy personal config
+  copy:
+    src: .doom.d
+    dest: "{{ansible_user_dir}}"
+    backup: yes
 
 - name: Bootstraping emacs
   expect:
-    command: make quickstart
+    command: bin/doom install
     responses:
-      (?i)Proceed: y
+      (?i)Download and install all-the-icon's fonts: y
     timeout: 600
   args:
     chdir: '/home/gergelyorosz/.emacs.d'

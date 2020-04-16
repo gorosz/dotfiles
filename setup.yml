@@ -1,11 +1,12 @@
 - name: setup local machine
-  hosts: all
+  hosts: local
+  vars:
+    config_home: "{{ansible_user_dir}}/.config"
   roles:
-    - {role: bootstrap, tags: ['bootstrap']}
-    - {role: geerlingguy.docker, tags: ['bootstrap'], become: yes}
-    - {role: git, tags: ['git']}
-    - {role: zsh, tags: ['zsh']}
-    - {role: emacs, tags: ['emacs']}
-    - {role: qtile, tags: ['qtile']}
-    - {role: ssh, tags: ['ssh']}  # This role is configured to use ansible-vault to encrypt ssh keys, disable it by removing from the list
-    - {role: binfiles, tags: ['binfiles']}  # This role is configured to use ansible-vault to encrypt ssh keys, disable it by removing from the list
+     - {role: repositories, tags: ['repos']}
+     - {role: bootstrap, tags: ['bs']}
+     - {role: i3wm, tags:['wm', 'i3']}
+     - {role: alacritty, tags: ['termial', 'alacritty']}
+     - {role: fish, tags: ['fish']}
+     - {role: powershell, tags: ['pwsh']}
+     - {role: asdf-vm, tags: ['asdf']}

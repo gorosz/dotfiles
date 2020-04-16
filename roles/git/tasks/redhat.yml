@@ -1,6 +1,0 @@
----
-- name: Install git with dnf
-  dnf:
-    name: git
-    state: latest
-  become: true

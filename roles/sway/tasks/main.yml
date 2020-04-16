@@ -1,0 +1,33 @@
+---
+# tasks file for roles/sway
+#
+- name: create sway config directory
+  file:
+    dest: "{{config_home}}/sway"
+    state: directory
+
+- name: install sway
+  dnf:
+    name:
+      - sway
+      - swayidle
+      - swaylock
+    state: latest
+  become: true
+
+- name: deploy config
+  copy:
+    src: config
+    dest: "{{config_home}}/sway/config"
+    backup: yes
+
+- name: deploy wallpaper
+  copy:
+    src: bg.png
+    dest: "{{config_home}}/sway/bg.png"
+    backup: yes
+
+- name: cloning bumblebee-status
+  git:
+    repo: "git://github.com/tobi-wan-kenobi/bumblebee-status"
+    dest: "{{ansible_user_dir}}/Tools/bumblebee-status"

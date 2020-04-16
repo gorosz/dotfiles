@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: prezi_template
+# key: prezi_template
+# --
+- name: Use template
+template:
+src: "other_config.j2"
+dest: "{{home}}/.config/other_config"
+backup: true
+mode: 0600
