@@ -2,13 +2,15 @@
 # vars file for roles/bootstrap
 #
 system_packages:
-  - git
-  - weston
-  - micro
   - bat
+  - blueman
+  - discount
   - fzf
+  - git
+  - libvirt-client
+  - micro
+  - playerctl
+  - snapd
   - telegram-desktop
   - virt-manager
-  - libvirt-client
-  - playerctl
-  - discount
+  - weston
