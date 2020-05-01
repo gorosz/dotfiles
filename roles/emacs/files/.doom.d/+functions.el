@@ -8,3 +8,12 @@
     (+workspace/switch-to news-workspace-name))
   (progn (+workspace/new news-workspace-name) (gnus))
  )
+
+(defun valami ()
+  (interactive)
+  (require 'json)
+  (require 'w3m)
+  (with-temp-buffer
+    (w3m-retrieve "https://hucovid.gigalixirapp.com/hu_data")
+    (goto-char (point-min))
+    (json-read)))

@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+function top --description 'Alias top -> bb'
+    bb $argv
+end

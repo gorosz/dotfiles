@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+function docker --description 'Alias docker -> podman'
+    podman $argv
+end

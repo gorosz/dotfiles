@@ -2,13 +2,27 @@
 # vars file for roles/bootstrap
 #
 system_packages:
-  - git
-  - weston
-  - micro
+  - arand
   - bat
+  - blueman
+  - discount
+  - dunst
+  - fd-find
+  - feh
   - fzf
+  - git
+  - jq
+  - libvirt-client
+  - micro
+  - mirage
+  - pavucontrol
+  - playerctl
+  - pv
   - telegram-desktop
   - virt-manager
-  - libvirt-client
-  - playerctl
-  - discount
+  - weston
+  - maildir-utils # should go to work
+  - xsel
+  - pv
+  - ripgrep
+  - xss-lock

@@ -5,6 +5,7 @@
   dnf:
     name:
       - cmake
+      - libtool
       - libvterm-devel
       - libvterm-tools
       - ripgrep

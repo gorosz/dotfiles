@@ -183,6 +183,7 @@ bindsym XF86AudioPrev exec playerctl -p spotify previous
 assign [class="^Emacs$"] $ws1
 assign [class="^Brave-browser$"] $ws2
 assign [class="^Opera$"] $ws2
+assign [class="^[fF]irefox.+"] $ws2
 assign [class="^[vV]ivaldi+"] $ws2
 assign [class="^Code"] $ws2
 assign [class="^Alacritty"] $ws1

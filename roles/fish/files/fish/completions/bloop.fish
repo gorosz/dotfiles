@@ -1,0 +1,1 @@
+/home/gergelyorosz/.bloop/fish/bloop.fish

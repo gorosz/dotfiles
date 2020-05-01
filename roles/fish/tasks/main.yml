@@ -5,3 +5,9 @@
     name: fish
     state: latest
   become: yes
+
+- name: deploy config
+  copy:
+    src: fish
+    dest: "{{config_home}}"
+    backup: yes
