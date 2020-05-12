@@ -6,7 +6,7 @@
   :config (setq pomidor-sound-tick nil
                 pomidor-sound-tack nil
                 pomidor-seconds (* 45 60)
-                pomidor-break-seconds (* 10 60)))
+                pomidor-break-seconds (* 15 60)))
 
 
 (map! :localleader

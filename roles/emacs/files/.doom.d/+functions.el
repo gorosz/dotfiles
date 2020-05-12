@@ -1,6 +1,7 @@
 ;;; ~/.doom.d/+functions.el -*- lexical-binding: t; -*-
 
 (defvar news-workspace-name "OG-News")
+(defvar pomidor-workspace-name "OG-Pomidor")
 
 (defun og/news ()
   (interactive)
@@ -9,11 +10,8 @@
   (progn (+workspace/new news-workspace-name) (gnus))
  )
 
-(defun valami ()
+(defun og/pomi ()
   (interactive)
-  (require 'json)
-  (require 'w3m)
-  (with-temp-buffer
-    (w3m-retrieve "https://hucovid.gigalixirapp.com/hu_data")
-    (goto-char (point-min))
-    (json-read)))
+  (when (+workspace-exists-p pomidor-workspace-name)
+    (+workspace/switch-to pomidor-workspace-name))
+  (progn (+workspace/new pomidor-workspace-name) (pomidor)))

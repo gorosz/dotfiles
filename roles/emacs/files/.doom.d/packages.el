@@ -51,7 +51,11 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 (package! alert)
 (package! atomic-chrome)
+(package! egg-timer)
 (package! feature-mode)
+(package! org-jira)
 (package! pomidor)
 (package! powershell)
 (package! slack)
+
+(package! gerrit-el :recipe (:host github :repo "iartarisi/gerrit-el"))
