@@ -1,0 +1,7 @@
+---
+# tasks file for roles/vivaldi
+#
+- name: install vivaldi
+  dnf:
+    name: "https://downloads.vivaldi.com/stable/vivaldi-stable-3.0.1874.38-1.x86_64.rpm"
+    state: present
