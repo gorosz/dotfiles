@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include roles/intel_vga"
+      include_role:
+        name: "roles/intel_vga"
