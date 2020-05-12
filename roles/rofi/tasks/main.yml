@@ -7,6 +7,11 @@
     state: latest
   become: yes
 
+- name: create config dir
+  file:
+    name: "{{config_home}}/rofi"
+    state: directory
+
 - name: deploy config
   copy:
     src: rofi

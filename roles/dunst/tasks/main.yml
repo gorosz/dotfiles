@@ -1,0 +1,20 @@
+---
+# tasks file for roles/dunst
+#
+
+- name: Install dunst
+  dnf:
+    name: dunst
+    state: latest
+  become: yes
+
+- name: create config dir
+  file:
+    name: "{{config_home}}/dunst"
+    state: directory
+
+- name: deploy config
+  copy:
+    src: dunstrc
+    dest: "{{config_home}}/dunst/dunstrc"
+    backup: yes
