@@ -9,6 +9,7 @@ system_packages:
   - dunst
   - fd-find
   - feh
+  - flatpak
   - fzf
   - git
   - jq
