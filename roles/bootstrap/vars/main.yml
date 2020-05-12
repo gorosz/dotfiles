@@ -13,16 +13,17 @@ system_packages:
   - git
   - jq
   - libvirt-client
+  - maildir-utils # should go to work
   - micro
   - mirage
   - pavucontrol
   - playerctl
   - pv
+  - pv
+  - restic
+  - ripgrep
   - telegram-desktop
   - virt-manager
   - weston
-  - maildir-utils # should go to work
   - xsel
-  - pv
-  - ripgrep
   - xss-lock
