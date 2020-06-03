@@ -2,7 +2,7 @@
 # vars file for roles/bootstrap
 #
 system_packages:
-  - arand
+  - arandr
   - bat
   - blueman
   - discount
@@ -14,12 +14,12 @@ system_packages:
   - git
   - jq
   - libvirt-client
+  - lsd
   - maildir-utils # should go to work
   - micro
   - mirage
   - pavucontrol
   - playerctl
-  - pv
   - pv
   - restic
   - ripgrep
