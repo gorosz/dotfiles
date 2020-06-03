@@ -27,10 +27,24 @@
     dest: "{{config_home}}/i3/config"
     backup: yes
 
-- name: symlink autostart file
+- name: copy autostart file
   copy:
     src: autostart.sh
     dest: "{{config_home}}/i3/autostart.sh"
+    backup: yes
+    mode: 0755
+
+- name: copy background file
+  copy:
+    src: bg.png
+    dest: "{{config_home}}/i3/bg.png"
+    backup: yes
+    mode: 0755
+
+- name: copy autlock file
+  copy:
+    src: autolock.sh
+    dest: "{{ansible_user_dir}}/.local/bin/autolock.sh"
     backup: yes
     mode: 0755
 
